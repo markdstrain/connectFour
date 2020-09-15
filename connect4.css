@@ -1,0 +1,169 @@
+/* game board table */
+@font-face{
+  font-family: "Connect4";
+  src: url(Attributes/fonts/StarellaTattooDeco_PERSONAL_USE.ttf);
+}
+body{
+  margin-top: 0;
+  margin-bottom: 0;
+  height: 98vh;
+}
+.h1{
+  position: relative;
+  width: 1100px;
+  height: 255px;
+  left: 50%;
+  top: 0;
+  margin-left: -550px;
+  font-family: Connect4;
+  font-size: 90px;
+  text-align: center;
+  color: yellow;
+  text-shadow: -2px -2px 0 black, 2px -2px 0 black,-2px 2px 0 black,2px 2px 0 black;
+  
+}
+
+
+#game{
+  z-index: 1;
+  height: 800px;
+  
+  
+  
+  
+}
+#column-top  {
+  border: dashed 1px lightgray;
+  height: 50px;
+  width: 50px;
+  color: white;
+  cursor: pointer;
+  transition: all 0.2s;
+  
+}
+
+#column-top td:hover {
+  background-color: gold;
+}
+
+
+#board{
+  position: absolute;
+  left:50%;
+  margin-left: -197px;
+  top:50%;
+  margin-top: -195px;
+  
+
+  
+  background-color: yellow;
+  border-bottom: solid 10px blue;
+  border-left: solid 7px blue;
+  border-right: solid 7px blue;
+  z-index: 1;
+  overflow: hidden;
+  
+  
+}
+
+.leg{
+  position: absolute;
+  z-index: -10;
+}
+#left{
+  left: 50%;
+  margin-left: -235px;
+  top: 50%;
+  margin-top: -158px;
+    
+}
+#right{
+  transform: scaleX(-1);
+  left: 50%;
+  margin-left:158px;
+  top: 50%;
+  margin-top: -158px;
+
+}
+
+#board td {
+  
+  width: 50px;
+  height: 50px;
+  background: white;
+  border-radius: 50%;
+  z-index: -5;
+}
+
+/* pieces are div within game table cells: draw as colored circles */
+
+.piece {
+  /* TODO: make into circles */
+  
+  margin: 1.25px;
+  width: 95%;
+  height: 95%;
+  border-radius: 50%;
+  
+  animation: drop 0.5s ease;
+  
+}
+@keyframes drop{
+  0%{
+    transform: translateY(-300px);
+  }
+  100%{
+    transform: translateY(0;)
+  }
+}
+.piece.player1{
+  background-color: red;
+  
+}
+.piece.player2{
+  background-color: black;
+ 
+}
+.overlayText{
+  display:none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  
+  justify-content:center;
+  text-align: center;
+  z-index: 100;
+  color: #E04319;
+  font-family: Agartha,serif;
+  text-shadow: 0 0 8px #4C1303, 0 0 20px #000000;
+}
+
+.overlayTextSmall{
+  font-size:.3em;
+}
+.overlayTextSmall:hover{
+  cursor: pointer;
+}
+.overlayText .visible{
+  display: flex;
+  animation: overlayGrow 1000ms forwards;
+  flex-direction: column;
+}
+@keyframes overlayGrow{
+  from { 
+      background-color:rgba(0,0,0,0);
+      font-size: 0;
+  }
+  to {
+      font-size: 10em;
+      background-color:rgba(0,0,0,.8) ;
+  }
+}
+
+/* TODO: make pieces red/blue,  depending on player 1/2 piece */
+
+/* column-top is table row of clickable areas for each column */
+
+
